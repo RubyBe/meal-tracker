@@ -3,16 +3,24 @@ import { Meal } from './meal.model';
 import { MealComponent } from './meal.component';
 import { MealAddComponent} from './meal-add.component';
 import { MealEditComponent} from './meal-edit.component';
+import { CalorieFilterPipe } from './calorie-filter.pipe';
 
 @Component({
   selector: 'meal-list',
   inputs: ['mealList'],
   outputs: ['onMealSelect'],
   directives: [MealComponent, MealAddComponent, MealEditComponent],
+  pipes: [CalorieFilterPipe],
   template:`
     <h3>Click any meal to show or edit details:</h3>
       <div class = "container jumbotron" id="display">
-        <meal-display *ngFor="#currentMeal of mealList"
+        <select (change)="onChange($event.target.value)">
+          <option value="fewer">Show meals < 500 calories</option>
+          <option value="greater">Show meals > 499 calories</option>
+          <option value="all">Show all meals</option>
+        </select>
+        <hr />
+        <meal-display *ngFor="#currentMeal of mealList | calorieFilter:calorieFiltered"
           (click)="mealClicked(currentMeal)"
           [mealSelected]="currentMeal===selectedMeal"
           [meal]="currentMeal">
@@ -33,6 +41,8 @@ import { MealEditComponent} from './meal-edit.component';
 export class MealListComponent{
   // property to hold our input
   public mealList: Meal[];
+  // property to hold filter selection
+  public calorieFiltered: string="all";
   // property to hold our output
   public onMealSelect: EventEmitter<Meal>;
   public selectedMeal: Meal;
@@ -48,5 +58,8 @@ export class MealListComponent{
     this.mealList.push(
       new Meal(meal.name, meal.calories, meal.description)
     );
+  }
+  onChange(optionFromMenu) {
+    this.calorieFiltered = optionFromMenu;
   }
 }
