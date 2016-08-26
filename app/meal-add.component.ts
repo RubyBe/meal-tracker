@@ -15,16 +15,16 @@ import { Meal } from './meal.model';
   `
 })
 export class MealAddComponent {
-  public onSubmitNewStrings: EventEmitter<[Meal]>;
+  public onSubmitNewStrings: EventEmitter<Object>;
   constructor() {
     this.onSubmitNewStrings = new EventEmitter();
   }
-  addMeal(newName: HTMLInputElement, newCalories: HTMLInputElement, newDescription: HTMLInputElement, newGenre: HTMLInputElement) {
-    // console.log(newCalories.value);
-    // this.onSubmitNewStrings.emit([newName.value, newCalories.value, newDescription.value, newGenre.value]);
+  addMeal(newName: HTMLInputElement, newCalories: HTMLInputElement, newDescription: HTMLInputElement) {
+    this.onSubmitNewStrings.emit({name: newName.value, calories: newCalories.value, description: newDescription.value
+    });
+    // this.onSubmitNewStrings.emit([newName.value, newCalories.value, newDescription.value]);
     // newName.value="";
     // newCalories.value="";
     // newDescription.value="";
-
     }
   }

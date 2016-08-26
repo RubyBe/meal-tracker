@@ -10,6 +10,7 @@ import { MealEditComponent} from './meal-edit.component';
   outputs: ['onMealSelect'],
   directives: [MealComponent, MealAddComponent, MealEditComponent],
   template:`
+    <h3>Click any meal to show or edit details.</h3>
     <meal-display *ngFor="#currentMeal of mealList"
       (click)="mealClicked(currentMeal)"
       [mealSelected]="currentMeal===selectedMeal"
@@ -34,5 +35,10 @@ export class MealListComponent{
     console.log(clickedMeal.calories);
     this.selectedMeal = clickedMeal;
     this.onMealSelect.emit(clickedMeal);
+  }
+  createMeal(meal): void {
+    this.mealList.push(
+      new Meal(meal.name, meal.calories, meal.description)
+    );
   }
 }

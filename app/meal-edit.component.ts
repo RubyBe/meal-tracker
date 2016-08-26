@@ -6,14 +6,15 @@ import { Meal } from './meal.model';
   inputs: ['meal'],
   template: `
     <div class="meal-edit-form">
-      <h3>Meal Title: <input [(ngModel)]="meal.name" class="input-lg meal-edit-form"/></h3>
       <hr />
+      <h3>Edit these meal details:</h3>
       <p>Name:</p>
       <input [(ngModel)]="meal.name" class="col-sm-8 input-lg meal-edit-form"/>
-      <p>Release Date:</p>
+      <p>Calories:</p>
       <input [(ngModel)]="meal.calories" class="col-sm-8 input-lg meal-edit-form"/>
-      <p>Genre:</p>
+      <p>Description:</p>
       <input [(ngModel)]="meal.description" class="col-sm-8 input-lg meal-edit-form"/>
+      <hr />
     </div>
   `
 })
