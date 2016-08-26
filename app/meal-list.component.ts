@@ -16,9 +16,9 @@ import { CalorieFilterPipe } from './calorie-filter.pipe';
     <h3>Click any meal to show or edit details:</h3>
       <div class = "container jumbotron" id="display">
         <select (change)="onChange($event.target.value)">
+          <option value="all">Show all meals</option>
           <option value="fewer">Show meals < 500 calories</option>
           <option value="greater">Show meals > 499 calories</option>
-          <option value="all">Show all meals</option>
         </select>
         <hr />
         <meal-display *ngFor="#currentMeal of mealList | calorieFilter:calorieFiltered"
