@@ -7,7 +7,8 @@
 #display {
   color: black;
   background-color: #C6B38E;
-  height: 300px;
+  height: auto;
+  overflow: hidden;
 }
 
 #edit {
@@ -19,5 +20,5 @@
 #add {
   color: black;
   background-color: #66A182;
-  height: 300px;
+  height: 350px;
 }
