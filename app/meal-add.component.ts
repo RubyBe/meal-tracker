@@ -5,7 +5,6 @@ import { Meal } from './meal.model';
   selector: 'meal-add',
   outputs: ['onSubmitNewStrings'],
   template: `
-    <h3>Add a New Meal</h3>
     <div class="meal-list-add-form">
       <input placeholder="Name" class="input-lg meal-list-add-form" #newName>
       <input placeholder="Calories" class="col-sm-8 input-lg" #newCalories>

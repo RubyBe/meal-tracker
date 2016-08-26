@@ -1,3 +1,23 @@
-h1 {
-  color: blue;
+
+.container {
+  background-color: #2E4057;
+  color: white;
+}
+
+#display {
+  color: black;
+  background-color: #C6B38E;
+  height: 300px;
+}
+
+#edit {
+  color: black;
+  background-color: #E7F9A9;
+  height: 300px;
+}
+
+#add {
+  color: black;
+  background-color: #66A182;
+  height: 300px;
 }

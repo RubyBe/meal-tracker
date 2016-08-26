@@ -10,15 +10,23 @@ import { MealEditComponent} from './meal-edit.component';
   outputs: ['onMealSelect'],
   directives: [MealComponent, MealAddComponent, MealEditComponent],
   template:`
-    <h3>Click any meal to show or edit details.</h3>
-    <meal-display *ngFor="#currentMeal of mealList"
-      (click)="mealClicked(currentMeal)"
-      [mealSelected]="currentMeal===selectedMeal"
-      [meal]="currentMeal">
-    </meal-display>
-    <meal-edit *ngIf="selectedMeal" [meal]="selectedMeal">
-    </meal-edit>
-    <meal-add (onSubmitNewStrings)="createMeal($event)"></meal-add>
+    <h3>Click any meal to show or edit details:</h3>
+      <div class = "container jumbotron" id="display">
+        <meal-display *ngFor="#currentMeal of mealList"
+          (click)="mealClicked(currentMeal)"
+          [mealSelected]="currentMeal===selectedMeal"
+          [meal]="currentMeal">
+        </meal-display>
+      </div>
+   <h3>Edit Meal Details:</h3>
+      <div class = "container jumbotron" id="edit">
+        <meal-edit *ngIf="selectedMeal" [meal]="selectedMeal">
+        </meal-edit>
+      </div>
+    <h3>Add a New Meal:</h3>
+      <div class = "container jumbotron" id="add">
+        <meal-add (onSubmitNewStrings)="createMeal($event)"></meal-add>
+      </div>
   `
 
 })

@@ -8,7 +8,7 @@ import { MealListComponent} from './meal-list.component';
   selector: 'my-app',
   directives: [MealListComponent],
   template: `
-    <div class = "container">
+    <div class = "container jumbotron">
       <h1>Downtown Seattle Meal Tracker</h1>
       <meal-list
         [mealList]="meals"
