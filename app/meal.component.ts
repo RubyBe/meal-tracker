@@ -1,6 +1,7 @@
 import { Component } from 'angular2/core';
 import { Meal } from './meal.model';
 
+// a class which holds a meal object, and a view to provide details of that meal object
 @Component({
     selector: 'meal-display',
     inputs: ['meal'],
@@ -20,5 +21,6 @@ import { Meal } from './meal.model';
   `
 })
 export class MealComponent {
+  // a property to hold a meal object
   public meal: Meal;
 }

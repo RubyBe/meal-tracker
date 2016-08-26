@@ -1,6 +1,8 @@
 import { Component } from 'angular2/core';
 import { Meal } from './meal.model';
 
+
+// a class which provides a holds a meal object; a view which provides a form for entering details for a new meal object
 @Component({
   selector: 'meal-edit',
   inputs: ['meal'],

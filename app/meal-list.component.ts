@@ -5,6 +5,7 @@ import { MealAddComponent} from './meal-add.component';
 import { MealEditComponent} from './meal-edit.component';
 import { CalorieFilterPipe } from './calorie-filter.pipe';
 
+// a class which manages the list of meal objects and provides view anchors to view, edit, and add new meal objects
 @Component({
   selector: 'meal-list',
   inputs: ['mealList'],
@@ -49,16 +50,19 @@ export class MealListComponent{
   constructor() {
     this.onMealSelect = new EventEmitter();
   }
+  // a method which captures and passes a meal object in the meal list when it is clicked
   mealClicked(clickedMeal: Meal): void {
     console.log(clickedMeal.calories);
     this.selectedMeal = clickedMeal;
     this.onMealSelect.emit(clickedMeal);
   }
+  // a method to add a new meal object to the list of meal objects
   createMeal(meal): void {
     this.mealList.push(
       new Meal(meal.name, meal.calories, meal.description)
     );
   }
+  // a method which captures and passes any change from the calorie filter drop-down select
   onChange(optionFromMenu) {
     this.calorieFiltered = optionFromMenu;
   }

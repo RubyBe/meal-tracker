@@ -1,6 +1,7 @@
 import { Component, EventEmitter } from 'angular2/core';
 import { Meal } from './meal.model';
 
+// a class which passes a new meal object to its parent class for adding to the list of meal objects; a form which provides ability to enter details for the new meal object
 @Component({
   selector: 'meal-add',
   outputs: ['onSubmitNewStrings'],
