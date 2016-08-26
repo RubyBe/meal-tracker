@@ -16,7 +16,7 @@
 ###### Component Tree
 | Component     | Description          | File | Properties/Methods |
 | ------------- |-------------| ----- | -----|
-|Main| A class that manages bootstrapping the application | main.ts | tbd |
+|Main| A class that manages bootstrapping the application | main.ts | name: string, calories: number, description: string |
 |AppComponent| Top level parent component | app.component.ts | tbd |
 |MealComponent| A class that defines a meal object | meal.component.ts | tbd |
 |MealListComponent| A class that lists all meal objects | meal-new.component.ts | tbd |
