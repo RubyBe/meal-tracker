@@ -1,5 +1,5 @@
 // import Component code from angulary library
-import { Component } from 'angular2/core';
+import { Component, EventEmitter } from 'angular2/core';
 import { Meal } from './meal.model';
 import { MealListComponent} from './meal-list.component';
 
@@ -10,7 +10,10 @@ import { MealListComponent} from './meal-list.component';
   template: `
     <div class = "container">
       <h1>Downtown Seattle Meal Tracker</h1>
-      <meal-list [mealList]="meals"></meal-list>
+      <meal-list
+        [mealList]="meals"
+        (onMealSelect)="mealWasSelected($event)">
+      </meal-list>
     </div>
   `
 })
@@ -25,7 +28,7 @@ export class AppComponent {
     ];
   }
   mealWasSelected(clickedMeal: Meal): void {
-    console.log(clickedMeal);
+    console.log(clickedMeal.description);
   }
 
 }
