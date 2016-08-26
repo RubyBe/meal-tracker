@@ -13,6 +13,7 @@ import { MealComponent } from './meal.component';
       [mealSelected]="currentMeal===selectedMeal"
       [meal]="currentMeal">
     </meal-display>
+    <meal-add (onSubmitNewStrings)="createMeal($event)"></meal-add>
   `
 
 })
